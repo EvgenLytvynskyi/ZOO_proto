@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+     <title>Title</title> 
+	 <style>
+ </style>
+</head>
+<body>
+</body>
+	<script>
+	
+	function Human(weight, walk, speak){ //Клас людина
+            this.weight = weight;
+            this.walk = walk;
+            this.speak = speak;
+        }
+       
+      var man = new Human(90, 'fast walking', 'low voice');//Клас чоловік, який наслідує клас людина
+      man.gender = 'male';
+      var woman = new Human(40, 'slow walking', 'clear voice');//Клас жінка, який наслідує клас людина
+      woman.gender = 'female';
+ //==================================================     
+	function Librarian (review, name){//Клас бібліотекар
+        		this.review = review ;
+        		this.name = name;
+        		this.find = function(){
+        			console.log('I will ' + this.review + ' all the books and find the decision');
+        		}		
+		  } 
+        
+        Librarian.prototype = woman;//Клас бібліотер наслідує клас жінка який наслідує клас людина
+        
+        var librarian = new Librarian ('review', 'librarian');
+ 
+ //=========================================================       
+ 
+        function Nurse (health, name){//Клас медсестра
+        		this.health = health;
+        		this.name = name;
+        		this.help = function(){
+        		console.log('I will make you' + this.health);
+        		}
+        }
+		Nurse.prototype = woman; 
+        
+        var nurse = new Nurse ('healthy', 'nurse ');
+        
+ //==================================================================       
+        function Hunter(shot,power,run, name){
+            this.shot = shot;
+            this.power = power;
+            this.run = run;
+            this.name = name;
+        }
+        
+       Hunter.prototype = man;
+       var hunter = new Hunter ('shot', 'strong', 'run', 'hunter');
+//===================================================================
+     function Worker(dig, carry, keep, name){
+            this.dig = dig;
+            this.carry = carry;
+            this.keep = keep;
+            this.name = name;
+        }
+        
+       Worker.prototype = man;
+       var worker = new Worker('dig', 'carry', 'keep', 'worker');
+
+//===================================================================
+
+		function Animal (walk, run, wool, bite){//Клас тварини
+		this.walk = walk;
+		this.run = run;
+		this.wool = wool;
+		this.bite = bite;
+		}
+		
+		var animal = new Animal('walk', 'run', 'wool', 'bite')
+//===============================================================		
+		function Herbivorous (eat, name){//Клас травоїдні
+		this.eat = eat;
+		this.name = name;
+		}
+		
+		Herbivorous.prototype = animal; //Клас травоїдні наслідує клас тварини 
+//============================================================		
+		var rabbit = new Herbivorous ('carrot', 'rabbit')
+		rabbit.bite = function (){
+		return console.log('I do not bite people or other animals, i like to eat '+ this.eat);
+		} 
+//========================================================		
+		var hourse = new Herbivorous ('apples', 'hourse')
+		hourse.bite = function (){
+		return console.log('I do not bite people or other animals, i like to eat '+ this.eat);
+		} 
+//=====================================================
+		
+		function Predator (eat, name){//Клас хижак
+		this.eat = eat;
+		this.name = name;
+		}
+		
+		Predator.prototype = animal;//Клас хижак наслідує клас тварини 
+//=======================================================		
+		var lion = new  Predator ('meat', 'lion');
+		lion.bite = function (){
+		return console.log('I would bite people or other animals, i like to eat '+ this.eat);
+		}
+//==========================================================		
+		var tiger = new  Predator ('meat', 'tiger');
+		tiger.bite = function (){
+		return console.log('I would bite people or other animals, i like to eat '+ this.eat);
+		}
+
+//==========================================================
+		console.log ('In the zoo works: ' + worker.name + ', '+hunter.name+', '+nurse.name+', '+librarian.name);
+		console.log ('In the zoo live: ' + rabbit.name + ', '+hourse.name+', '+lion.name+', '+tiger.name);
+		console.log ('The ' + hunter.name+ ' is '+hunter.power+', he '+hunter.shot+', '+hunter.run+' to catch animals');
+		console.log ('The ' + worker.name+ ' help the '+hunter.name+' to '+worker.keep+' and '+worker.carry+' animals to the zoo');
+		console.log ('Once the ' + hunter.name+ ' take the '+hourse.name+' and '+hunter.run+' to cath lion ');
+		console.log ('The '+lion.name+'  says ');
+		lion.bite();
+		console.log ('The '+librarian.name+'  says ');
+		librarian.find();
+
+
+		
+	</script>
+</html>
